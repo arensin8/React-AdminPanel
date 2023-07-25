@@ -1,6 +1,4 @@
-import React from 'react';
-import './Chart.scss'
-
+import "./Chart.scss";
 import {
   AreaChart,
   Area,
@@ -23,7 +21,7 @@ const Chart = () => {
   return (
     <div className="chart">
       <div className="title">Last 6 months (Revenue)</div>
-      <ResponsiveContainer width="100%" aspect={2 / 1}>
+      <ResponsiveContainer width="100%" aspect={ 2/1 }>
         <AreaChart
           width={730}
           height={250}
