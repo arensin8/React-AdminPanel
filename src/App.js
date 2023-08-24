@@ -5,6 +5,8 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { studentInputs } from './formSource';
+import { productInputs } from './formSource';
 
 import './styles.css'
 export default function App() {
@@ -20,15 +22,17 @@ export default function App() {
               <Route path=":studentId" element={<Single />} />
               <Route
                 path="new"
-                element={<New/>}
+                title={"Add New Student"}
+                element={<New inputs={studentInputs}/>}
               />
             </Route>
-            <Route path="teachers">
+            <Route path="products">
               <Route index element={<List />} />
-              <Route path=":teacherId" element={<Single />} />
+              <Route path=":productId" element={<Single />} />
               <Route
                 path="new"
-                element={<New/>}
+                title={"Add New Product"}
+                element={<New inputs ={productInputs}/>}
               />
             </Route>
             </Route>

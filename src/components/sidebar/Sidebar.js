@@ -30,7 +30,7 @@ const Sidebar = () => {
           </li>
           <li>
             <PersonOutlineIcon className="icon" />
-            <span>Teachers</span>
+            <span>Products</span>
           </li>
           <p className="title">USEFUL</p>
           <li>
