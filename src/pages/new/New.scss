@@ -67,11 +67,17 @@
                 width: 150px;
                 padding: 10px;
                 border: none;
-                background-color: #526D82;
+                background-color: #526d82bd;
                 color: white;
                 font-weight: bold;
                 cursor: pointer;
                 margin-top: 10px;
+                transition: 0.2s ease-in;
+                border-radius: 3px;
+
+                &:hover{
+                  background-color: #526d82;
+                }
             }
         }
       }
