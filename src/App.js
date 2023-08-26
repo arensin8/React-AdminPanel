@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import List from "./pages/list/List";
@@ -7,11 +7,14 @@ import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { studentInputs } from './formSource';
 import { productInputs } from './formSource';
+import './style/dark.scss'
 
 import './styles.css'
 export default function App() {
+
+  const [dark,setDark] = useState(false)
   return (
-   <div className='App'>
+   <div className='App dark'>
       <BrowserRouter>
         <Routes>
           <Route path="/">

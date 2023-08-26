@@ -22,18 +22,20 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
+          <Link to='/' style={{ textDecoration: "none" , color: '#27374D' }}>
           <li>
             <DashboardIcon className="icon" />
             <span>Dashboard</span>
           </li>
+          </Link>
           <p className="title">LISTS</p>
-          <Link to='/students' style={{ textDecoration: "none" , color: '#526D82' }}>
+          <Link to='/students' style={{ textDecoration: "none" , color: '#27374D' }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Students</span>
             </li>
           </Link>
-          <Link to='/products' style={{ textDecoration: "none", color: '#526D82'  }}>
+          <Link to='/products' style={{ textDecoration: "none", color: '#27374D'  }}>
           <li>
             <PersonOutlineIcon className="icon" />
             <span>Products</span>
