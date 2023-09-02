@@ -1,85 +1,104 @@
-.sidebar{
-    flex:1;
-    border-right: 0.5px solid lightgray;
-    min-height: 100vh;
+.sidebar {
+  flex: 1;
+  border-right: 0.5px solid lightgray;
+  min-height: 100vh;
 
-    .top{
-        height:50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-bottom: 1px solid lightgray;
+  .top {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
 
-        .logo{
-            font-size: 20px;
-            font-weight: bold;
-            color:#27374D;
-        }
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #27374d;
+    }
+  }
+
+  hr {
+    height: 0;
+    border: 0.01px solid lightgray;
+  }
+
+  .center {
+    padding-left: 10px;
+
+    ul {
+      list-style: none;
+
+      .title {
+        font-size: 13px;
+        font-weight: bold;
+        color: #9db2bf;
+        margin-top: 25px;
+        margin-bottom: 5px;
+      }
     }
 
-    hr{
-        height: 0;
-        border: 0.01px solid lightgray;
+    li {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #dde6ed;
+      }
+
+      .icon {
+        font-size: 18px;
+        color: #526d82;
+      }
+
+      span {
+        font-size: 18px;
+        margin-left: 10px;
+      }
     }
+  }
 
-    .center{
-        padding-left: 10px;
+  .bottom {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    margin-top: 50px;
 
-        ul{
-            list-style: none;
+    .colorOption {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid #526d82;
+      margin: 5px;
 
-            .title{
-                font-size: 13px;
-                font-weight: bold;
-                color:#9DB2BF ;
-                margin-top: 25px;
-                margin-bottom: 5px;
-            }
-        }
-
-        li{
-            display: flex;
-            align-items: center;
-            padding: 5px;
-            cursor: pointer;
-
-
-            &:hover{
-                background-color: #DDE6ED;
-            }
-
-            .icon{
-                font-size: 18px;
-                color: #526D82;
-            }
-
-            span{
-                font-size: 18px;
-                margin-left: 10px;
-            }
-        }
+      &:nth-child(1) {
+        background-color: whitesmoke;
+      }
+      &:nth-child(2) {
+        background-color: #333;
+      }
     }
+  }
+}
 
-    .bottom{
-        display: flex;
-        align-items: center;
-        margin: 10px;
-        margin-top: 50px;
+// Define breakpoints as Sass variables
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1024px;
 
-        .colorOption{
-            width: 20px;
-            height: 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            border: 1px solid #526D82;
-            margin: 5px;
+// Create a mixin for media queries
+@mixin media-query($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
 
-            &:nth-child(1){
-                background-color: whitesmoke;
-            }
-            &:nth-child(2){
-                background-color: #333;
-            }
-        }
+@include media-query($mobile-breakpoint) {
+  .sidebar {
+    display: none;
+    .top {
+      height: 100px;
     }
+  }
 }

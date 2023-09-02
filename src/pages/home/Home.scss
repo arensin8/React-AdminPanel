@@ -1,20 +1,33 @@
-.home{
-    display: flex;
+.home {
+  display: flex;
 
-    .homeContainer{
-        flex:6;
+  .ham {
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    .hamburger {
+      display: none;
+    }
+  }
 
-        .widgets , .charts{
-            display: flex;
-            padding: 20px;
-            gap: 20px;
-        }
+  .homeContainer {
+    flex: 6;
 
-        .charts{
-            padding: 5px 20px;
-        }
+    .widgets,
+    .charts {
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+    }
 
-         .listContainer {
+    .charts {
+      padding: 5px 20px;
+    }
+
+    .listContainer {
       -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
       box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
       padding: 20px;
@@ -22,9 +35,36 @@
 
       .listTitle {
         font-weight: 500;
-        color: #526D82;
+        color: #526d82;
         margin-bottom: 15px;
       }
     }
+  }
+}
+
+// Define breakpoints as Sass variables
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1024px;
+
+// Create a mixin for media queries
+@mixin media-query($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@include media-query($mobile-breakpoint) {
+  .home {
+    flex-direction: column;
+    .homeContainer {
+      width: 100vw;
+
+      .widgets {
+        margin-top: 30px;
+      }
     }
+    .hamburger {
+      display: block;
+    }
+  }
 }

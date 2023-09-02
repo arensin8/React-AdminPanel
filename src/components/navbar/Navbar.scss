@@ -1,71 +1,126 @@
-.navbar{
-    height: 50px;
-    border-bottom: 0.5px solid lightgray;
+.navbar {
+  height: 50px;
+  border-bottom: 0.5px solid lightgray;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+
+  .wrapper {
+    width: 100%;
     display: flex;
+    padding: 20px;
     align-items: center;
-    font-size: 14px;
-    color:#555;
+    justify-content: space-between;
 
-    .wrapper{
-        width: 100%;
+    .items {
+      display: flex;
+      align-items: center;
+
+      .hamburger {
+        cursor: pointer;
+        display: none;
+      }
+
+      .item {
         display: flex;
-        padding: 20px;
         align-items: center;
-        justify-content: space-between;
+        margin-right: 20px;
+        position: relative;
 
-        .items{
-            display: flex;
-            align-items: center;
-
-            .item{
-                display: flex;
-                align-items: center;
-                margin-right: 20px;
-                position: relative;
-
-                .icon{
-                    font-size: 20px;
-                    cursor: pointer;
-                }
-
-                .avatar{
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 50%;
-                }
-
-                .counter{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background-color: red;
-                    color: white;
-                    border-radius: 50%;
-                    height: 15px;
-                    width: 15px;
-                    font-size: 10px;
-                    font-weight: bold;
-                    position: absolute;
-                    top: -5px;
-                    right: -5px;
-                }
-            }
+        .icon {
+          font-size: 20px;
+          cursor: pointer;
         }
 
-        .search{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border:0.5px solid lightgray ;
-            padding: 4px;
-            border-radius: 5px;
-
-            input{
-                border: none;
-                outline: none;
-                background-color: transparent;
-                padding: 3px;
-            }
+        .avatar {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
         }
+
+        .counter {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: red;
+          color: white;
+          border-radius: 50%;
+          height: 15px;
+          width: 15px;
+          font-size: 10px;
+          font-weight: bold;
+          position: absolute;
+          top: -5px;
+          right: -5px;
+        }
+      }
     }
+
+    .search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.5px solid lightgray;
+      padding: 4px;
+      border-radius: 5px;
+
+      input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        padding: 3px;
+      }
+    }
+  }
+}
+
+// Define breakpoints as Sass variables
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1024px;
+
+// Create a mixin for media queries
+@mixin media-query($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@include media-query($mobile-breakpoint) {
+  .navbar {
+    position: absolute;
+    flex-direction: column;
+    background-color: aqua;
+    height: 100vh;
+    width: 30vw;
+    right: -100% !important;
+
+    .open {
+      right: 0;
+    }
+    .wrapper {
+      flex-direction: column;
+      margin-top: 30px;
+
+      .items {
+        margin-top: 20%;
+        flex-direction: column;
+        padding: 2px;
+        gap: 40px;
+
+        .hamburger {
+          display: block;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
+
+        .item {
+          .icon {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
 }
