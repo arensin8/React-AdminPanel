@@ -1,3 +1,7 @@
+.ham-icon {
+  display: none;
+}
+
 .navbar {
   height: 50px;
   border-bottom: 0.5px solid lightgray;
@@ -5,6 +9,7 @@
   align-items: center;
   font-size: 14px;
   color: #555;
+  transition: 0.3s all ease;
 
   .wrapper {
     width: 100%;
@@ -16,11 +21,6 @@
     .items {
       display: flex;
       align-items: center;
-
-      .hamburger {
-        cursor: pointer;
-        display: none;
-      }
 
       .item {
         display: flex;
@@ -87,33 +87,38 @@ $tablet-breakpoint: 1024px;
 }
 
 @include media-query($mobile-breakpoint) {
+  .ham-icon {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
   .navbar {
     position: absolute;
     flex-direction: column;
-    background-color: aqua;
+    background-color: #9db2bf;
     height: 100vh;
-    width: 30vw;
-    right: -100% !important;
+    width: 45vw;
+    right: -300px;
+    display: none;
+    transition: 0.5s ease;
 
-    .open {
-      right: 0;
-    }
     .wrapper {
       flex-direction: column;
       margin-top: 30px;
+
+      .search {
+        display: none;
+      }
 
       .items {
         margin-top: 20%;
         flex-direction: column;
         padding: 2px;
         gap: 40px;
-
-        .hamburger {
-          display: block;
-          position: absolute;
-          top: 10px;
-          right: 10px;
-        }
 
         .item {
           .icon {
@@ -122,5 +127,10 @@ $tablet-breakpoint: 1024px;
         }
       }
     }
+  }
+  .navbar.close {
+    display: block;
+    right: 0;
+    z-index: 100;
   }
 }

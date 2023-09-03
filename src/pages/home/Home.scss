@@ -1,17 +1,8 @@
 .home {
   display: flex;
+  transition: 0.3s all ease;
 
-  .ham {
-    position: absolute;
-    cursor: pointer;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    margin-bottom: 20px;
-    .hamburger {
-      display: none;
-    }
-  }
+  overflow-x: hidden;
 
   .homeContainer {
     flex: 6;
@@ -56,15 +47,13 @@ $tablet-breakpoint: 1024px;
 @include media-query($mobile-breakpoint) {
   .home {
     flex-direction: column;
+    width: 100vw;
     .homeContainer {
-      width: 100vw;
+      max-width: 100vw;
 
       .widgets {
         margin-top: 30px;
       }
-    }
-    .hamburger {
-      display: block;
     }
   }
 }

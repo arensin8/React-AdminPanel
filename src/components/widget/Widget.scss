@@ -52,3 +52,24 @@
     }
   }
 }
+
+
+// Define breakpoints as Sass variables
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1024px;
+
+// Create a mixin for media queries
+@mixin media-query($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@include media-query($mobile-breakpoint) {
+  .sidebar {
+    display: none;
+    .top {
+      height: 100px;
+    }
+  }
+}

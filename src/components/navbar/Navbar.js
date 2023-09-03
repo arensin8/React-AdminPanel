@@ -12,50 +12,60 @@ import { DarkModeContext } from "../../context/darkModeContext";
 
 const Navbar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const [hamMenu, setHamMenu] = useState(false);
+
+  const handleMenu = () => {
+    setHamMenu(!hamMenu);
+    console.log("dddd");
+  };
 
   return (
-    <div className="navbar">
-      <div className="wrapper">
-        <div className="search">
-          <input type="text" placeholder="Search..." />
-          <SearchOutlinedIcon />
-        </div>
-        <div className="items">
-          <div className="item">
-            <LanguageOutlinedIcon className="icon" />
-            English
+    <>
+      <div className={hamMenu ? " navbar close" : "navbar open"}>
+        <div className="wrapper">
+          <div className="search">
+            <input type="text" placeholder="Search..." />
+            <SearchOutlinedIcon />
           </div>
-          <div className="item">
-            <DarkModeOutlinedIcon
-              className="icon"
-              onClick={() => dispatch({ type: "TOGGLE" })}
-            />
+          <div className="items">
+            <div className="item">
+              <LanguageOutlinedIcon className="icon" />
+              English
+            </div>
+            <div className="item">
+              <DarkModeOutlinedIcon
+                className="icon"
+                onClick={() => dispatch({ type: "TOGGLE" })}
+              />
+            </div>
+            <div className="item">
+              <FullscreenExitOutlinedIcon className="icon" />
+            </div>
+            <div className="item">
+              <NotificationsNoneOutlinedIcon className="icon" />
+              <div className="counter">1</div>
+            </div>
+            <div className="item">
+              <ChatBubbleOutlineOutlinedIcon className="icon" />
+              <div className="counter">2</div>
+            </div>
+            <div className="item">
+              <ListOutlinedIcon className="icon" />
+            </div>
+            <div className="item">
+              <img
+                src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                alt=""
+                className="avatar"
+              />
+            </div>
           </div>
-          <div className="item">
-            <FullscreenExitOutlinedIcon className="icon" />
-          </div>
-          <div className="item">
-            <NotificationsNoneOutlinedIcon className="icon" />
-            <div className="counter">1</div>
-          </div>
-          <div className="item">
-            <ChatBubbleOutlineOutlinedIcon className="icon" />
-            <div className="counter">2</div>
-          </div>
-          <div className="item">
-            <ListOutlinedIcon className="icon" />
-          </div>
-          <div className="item">
-            <img
-              src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
-              alt=""
-              className="avatar"
-            />
-          </div>
-          <div></div>
         </div>
       </div>
-    </div>
+      <div className="ham-icon" onClick={handleMenu}>
+        <MenuIcon />
+      </div>
+    </>
   );
 };
 

@@ -14,15 +14,8 @@ const Home = () => {
     <div className="home">
       <Sidebar />
       <div className="homeContainer">
-        <div
-          className="ham"
-          onClick={() => {
-            setHamburgerMenu(!hamburgerMenu);
-          }}
-        >
-          <MenuIcon className={hamburgerMenu ? "close" : "open"} />
-        </div>
         <Navbar />
+
         <div className="widgets">
           <Widget type="user" />
           <Widget type="order" />

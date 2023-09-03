@@ -1,3 +1,8 @@
+.App {
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
 .App.dark {
   background-color: #222;
   color: rgb(156, 156, 156);
@@ -85,24 +90,26 @@
   .datatable {
     .datagrid {
       color: gray;
-      border:none;
+      border: none;
 
-      .viewButton,.deleteButton,.cellWithStatus{
+      .viewButton,
+      .deleteButton,
+      .cellWithStatus {
         color: gray;
-        border-color:gray;
+        border-color: gray;
       }
     }
   }
 
-  input{
+  input {
     background-color: transparent;
   }
 
-  .new{
-    .top{
-        h1{
-            color: gray;
-        }
+  .new {
+    .top {
+      h1 {
+        color: gray;
+      }
     }
   }
 }
